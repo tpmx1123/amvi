@@ -7,7 +7,7 @@ const VERTICALS = [
     category: "Tropical Harvest",
     title: "Fresh Fruit Export",
     desc: "Direct farm-to-port sourcing of premium fruits like bananas and papaya, shipped with full cold-chain compliance.",
-    accent: "#7cc2c3"
+    accent: "var(--primary)"
   },
   {
     id: "02",
@@ -15,7 +15,7 @@ const VERTICALS = [
     category: "Precision Drying",
     title: "Dehydrated Vegetables",
     desc: "Ready-to-cook okra, brinjal, and bitter gourd—retaining color and nutrients through low-heat drying.",
-    accent: "#d63030"
+    accent: "var(--accent-red)"
   },
   {
     id: "03",
@@ -23,13 +23,13 @@ const VERTICALS = [
     category: "Micro-Ground",
     title: "Dehydrated Powders",
     desc: "Micro-ground powders like turmeric and moringa for food manufacturers and health-focused brands.",
-    accent: "#7cc2c3"
+    accent: "var(--primary)"
   }
 ];
 
 const WhatWeDo = () => {
   return (
-    <section className=" py-10 px-6 md:px-10 overflow-hidden">
+    <section className=" py-5 px-6 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* --- HEADER SECTION WITH BACKGROUND --- */}
@@ -44,14 +44,30 @@ const WhatWeDo = () => {
             />
           </div>
 
-          {/* Header Text Content */}
-          <div className="relative z-10 max-w-3xl">
-            <span className="text-[#7cc2c3] uppercase tracking-[0.4em] font-bold text-[10px] md:text-lg mb-4 block">
-              Our Core Operations
-            </span>
-            <h2 className="text-4xl md:text-6xl font-serif font-black text-black leading-[1.05]">
+          {/* Header Text Content – match reference: WHAT WE DO + Playfair title, Nature in gold */}
+          <div className="relative z-10 max-w-3xl px-6 md:px-16">
+            <div className="flex items-center gap-3 mb-5">
+              <span 
+                className="uppercase tracking-[0.25em] text-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+              >
+                What We Do
+              </span>
+              <span 
+                className="flex-1 h-px max-w-[60px] bg-accent-yellow"
+              />
+            </div>
+            <h2 
+              className="text-primary"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 'clamp(2.2rem, 3.5vw, 3.2rem)',
+                fontWeight: 700,
+                lineHeight: 1.15,
+                marginBottom: '20px',
+              }}
+            >
               Three Ways We <br />
-              <span className="italic font-light text-gray-400">Bring Nature to You</span>
+              Bring <span className="text-accent-yellow">Nature</span> to You
             </h2>
           </div>
         </div>
@@ -61,10 +77,10 @@ const WhatWeDo = () => {
           {VERTICALS.map((item) => (
             <div 
               key={item.id}
-              className="group relative flex flex-col h-full bg-[#fcfdfd] p-10 rounded-[3rem] transition-all duration-700 hover:bg-[#e1f9f9] hover:shadow-2xl overflow-hidden"
+              className="group relative flex flex-col h-full bg-[#fcfdfd] p-10 rounded-[3rem] transition-all duration-700 hover:bg-primary/10 hover:shadow-2xl overflow-hidden"
             >
               {/* Number Background Decoration */}
-              <span className="absolute -top-4 -right-1 text-[120px]  font-black text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
+              <span className="absolute -top-2 -right-1 text-[80px]  font-bold text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
                 {item.id}
               </span>
 
@@ -79,20 +95,20 @@ const WhatWeDo = () => {
 
               {/* Content */}
               <div className="relative z-10 flex-grow">
-                <span className="text-[10px] font-black tracking-[0.3em] text-[#7cc2c3] uppercase mb-2 block">
+                <span className="text-[10px]  tracking-[0.1em] text-accent-yellow uppercase mb-2 block">
                   {item.category}
                 </span>
-                <h4 className="text-2xl  font-black text-black  mb-6 transition-colors duration-500">
+                <h4 className="text-xl  font-bold text-secondary  mb-6 transition-colors duration-500">
                   {item.title}
                 </h4>
-                <p className="text-gray-500 group-hover:text-gray-400 text-sm leading-relaxed mb-8">
+                <p className="text-secondary text-sm leading-relaxed mb-8">
                   {item.desc}
                 </p>
               </div>
 
               {/* CTA Footer */}
               <div className="relative z-10 pt-6 border-t border-gray-100 group-hover:border-white/10 flex justify-between items-center">
-                <span className="text-[10px] font-bold tracking-widest text-black  uppercase">
+                <span className="text-[10px]  tracking-widest text-secondary  uppercase">
                   Explore Vertical
                 </span>
                 <div 

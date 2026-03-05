@@ -1,15 +1,19 @@
 @import "tailwindcss" source(".");
 
 @theme {
-  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+  --color-primary: #1A3C3A;
+  --color-secondary: #000000;
+  --color-accent-red: #D63030;
+  --color-accent-yellow: #C9A227;
 }
 
 /* Minimal base – Tailwind handles all styling */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -17,7 +21,17 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #ecf2f2;
-  font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Montserrat';
+}
+
+/* Heading 1 – Playfair Display */
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Heading 2 – Helvetica */
+h2 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #root {
@@ -25,6 +39,17 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  /* AMVI design system */
+  --primary: #1A3C3A;
+  --secondary: #000000;
+  --accent-red: #D63030;
+  --accent-yellow: #C9A227;
+  /* Backward compatibility for existing components */
+  --deep-green: var(--primary);
+  --accent-gold: var(--accent-yellow);
 }
 
 /* Product section card stagger animation */

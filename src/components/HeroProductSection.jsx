@@ -16,7 +16,7 @@ const HeroProductSection = () => {
   const { ref: gridRef, offset: gridOffset } = useParallax(0.12);
 
   return (
-    <section className="py-10 px-6 md:px-10  overflow-hidden">
+    <section id="products" className="py-10 px-6 md:px-10  overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Section header – theme aligned */}
@@ -28,30 +28,48 @@ const HeroProductSection = () => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="relative z-10 max-w-2xl text-right px-6 md:px-12 py-12">
-            <h2 className="text-[#7cc2c3] uppercase tracking-[0.4em] font-bold text-[10px] md:text-lg mb-4 text-left">
-            The Collection
-            </h2>
-            <h3 className="text-4xl md:text-6xl font-serif font-black text-black leading-tight mb-6 text-left">
+          <div className="relative z-10 max-w-3xl px-6 md:px-16 ">
+            <div className="flex items-center  gap-3 mb-5 ">
+              <span 
+                className="uppercase tracking-[0.25em] text-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+              >
+                The Collection
+              </span>
+              <span 
+                className="flex-1 h-px max-w-[60px] bg-accent-yellow"
+              />
+            </div>
+            <h3 
+              className="text-left text-primary"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 'clamp(2.2rem, 3.5vw, 3.2rem)',
+                fontWeight: 700,
+                lineHeight: 1.15,
+                marginBottom: '20px',
+              }}
+            >
               Purely Healthy <br />
-              <span className="italic font-light text-gray-500 text-4xl md:text-6xl text-left">Fresh & Nutritious</span>
+              Fresh & <span className="text-accent-yellow">Nutritious</span>
             </h3>
-            <a
-            href="#shop"
-            className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-black border-b-2 border-[#7cc2c3] pb-1.5 hover:text-[#d63030] hover:border-[#d63030] transition-colors duration-300"
-          >
-            View All Products
-            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-            </a>
+            <div className="flex justify-end">
+              <a
+                href="#shop"
+                className="group inline-flex gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300 font-montserrat"
+              >
+                View All Products
+                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Two rows × 4 products – with stagger and parallax */}
         <div
           ref={gridRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10"
           style={{ transform: `translateY(${gridOffset}px)` }}
         >
           {PRODUCTS.map((product, index) => (
@@ -62,8 +80,8 @@ const HeroProductSection = () => {
                 animation: 'productCardFadeIn 0.6s ease-out forwards',
                 animationDelay: `${index * 60}ms`,
                 opacity: 0,
-                ['--accent']: '#7cc2c3',
-                ['--accent-hover']: '#d63030',
+                ['--accent']: 'var(--primary)',
+                ['--accent-hover']: 'var(--accent-red)',
               }}
             >
               {/* Image container – aspect ratio + hover zoom */}
@@ -76,23 +94,23 @@ const HeroProductSection = () => {
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 {/* Tag pill – teal by default, red on hover */}
                 <span
-                  className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-lg bg-[#7cc2c3] group-hover:bg-[#d63030] transition-colors duration-300"
+                  className="absolute top-3 left-3 text-[9px] font-black uppercase  px-2.5 py-1 rounded-full text-white shadow-lg bg-[#7cc2c3] group-hover:bg-accent-red transition-colors font-montserrat "
                 >
                   {product.tag}
                 </span>
               </div>
 
               {/* Content – theme borders and typography */}
-              <div className="p-4 md:p-5 border-t-4 border-[#f0f5f5] group-hover:border-[#d63030]/50 transition-colors duration-300">
-                <p className="text-[10px] font-bold text-[#7cc2c3] group-hover:text-[#d63030] uppercase tracking-wider mb-1 transition-colors duration-300">
+              <div className="p-4 md:p-5 border-t-4 border-[#f0f5f5] group-hover:border-accent-red/50 transition-colors duration-300">
+                <p className="text-[10px] font-bold text-[#7cc2c3] group-hover:text-accent-red uppercase tracking-wider mb-1 transition-colors duration-300">
                   {product.origin}
                 </p>
-                <h3 className="text-base md:text-lg font-serif font-black text-black mb-3 leading-tight">
+                <h3 className="text-base md:text-lg font-serif font-black text-secondary mb-3 leading-tight">
                   {product.title}
                 </h3>
                 <button
                   type="button"
-                  className="w-full py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-white bg-[#7cc2c3] group-hover:bg-[#d63030] transition-colors duration-300 hover:opacity-90 active:scale-[0.98]"
+                  className="w-full py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-white bg-[#7cc2c3] group-hover:bg-accent-red transition-colors duration-300 hover:opacity-90 active:scale-[0.98]"
                 >
                   Explore
                 </button>

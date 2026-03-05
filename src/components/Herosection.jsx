@@ -10,7 +10,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#f8fcfc] flex items-center">
+    <section id="home" className="relative w-full h-screen overflow-hidden bg-[#f8fcfc] flex items-center">
       
       {/* 1. Main 3D Background - Parallax */}
       <div 
@@ -39,28 +39,28 @@ const HeroSection = () => {
       <div className="relative z-30 w-full px-8 md:px-20 lg:px-24">
         <div className="max-w-xl animate-fade-in">
           
-          <h2 className="text-[#d63030] uppercase tracking-[0.4em] font-bold text-[10px] md:text-xs mb-4">
+          <h2 className="text-accent-red uppercase tracking-[0.3em] font-bold text-[10px] md:text-xs mb-4 font-Helvetica pl-4">
             Purely Healthy
           </h2>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-black font-black leading-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight mb-6">
             AMVI FOODS <br />
             
           </h1>
 
-          <p className="text-gray-700 text-sm md:text-base mb-10 font-medium leading-relaxed border-l-2 border-[#7cc2c3] pl-5 max-w-md">
-            Bringing the richness of <span className="text-[#d63030] font-bold">Konaseema</span> to your plate with premium dehydrated 
+          <p className="text-secondary text-sm md:text-base mb-10 font-medium leading-relaxed border-l-2 border-primary pl-5 max-w-md">
+            Bringing the richness of <span className="text-accent-red font-bold">Konaseema</span> to your plate with premium dehydrated 
             vegetables, fruits, and powders.
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row items-start gap-4">
-            <button className="group relative bg-[#d63030] text-white px-10 py-3.5 rounded-full font-bold text-[11px] tracking-widest overflow-hidden transition-all duration-300 shadow-lg active:scale-95">
+            <button className="group relative bg-accent-red text-white px-10 py-3.5 rounded-full font-bold text-[11px] tracking-widest overflow-hidden transition-all duration-300 shadow-lg active:scale-95">
               <span className="relative z-10 group-hover:text-white transition-colors">SHOP NOW</span>
-              <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
+              <div className="absolute inset-0 bg-secondary translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
             </button>
             
-            <button className="bg-white/30 border border-[#7cc2c3]/50 text-black px-10 py-3.5 rounded-full font-bold text-[11px] tracking-widest backdrop-blur-sm hover:bg-[#7cc2c3] hover:text-white transition-all duration-300">
+            <button className="bg-white/30 border border-primary/50 text-secondary px-10 py-3.5 rounded-full font-bold text-[11px] tracking-widest backdrop-blur-sm hover:bg-primary hover:text-white transition-all duration-300">
               OUR STORY
             </button>
           </div>

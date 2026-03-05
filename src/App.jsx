@@ -5,6 +5,7 @@ import WhatWeDo from "./components/WhatWeDo";
 import WhyAmvi from "./components/whyamvi"; 
 import OurProcess from "./components/OurProcess";
 import HeroProductsSection from "./components/HeroProductSection";
+import Footer from "./components/Footer";
 function App() {
   return (
     <>
@@ -12,9 +13,10 @@ function App() {
       <HeroSection />
       <FeatureCards />
       <WhatWeDo />
-      <WhyAmvi /> 
-      <OurProcess />
       <HeroProductsSection/>
+      <OurProcess />
+      <WhyAmvi /> 
+      <Footer />
     </>
   );
 }
