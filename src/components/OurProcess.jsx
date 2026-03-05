@@ -40,20 +40,34 @@ const PROCESS_STEPS = [
 
 const OurProcess = () => {
   return (
-    <section className="py-24 px-6 md:px-20  overflow-hidden">
+    <section className="py-10 px-6 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* --- HEADER --- */}
-        <div className="text-center mb-20">
-          <span className="text-[#7cc2c3] uppercase tracking-[0.4em] font-black text-[10px] md:text-xs mb-4 block">
-            The Journey
-          </span>
-          <h2 className="text-5xl md:text-7xl font-serif font-black text-black leading-tight mb-6">
-            From Field to <span className="italic font-light text-gray-400">Finished Product</span>
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
+        <div className="relative mb-14 min-h-[300px] flex items-center">
+          
+          {/* Background Image Container - Only for this Header block */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/4 h-full pointer-events-none z-0">
+            <img 
+              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772686310/Screenshot_2026-03-05_102036-removebg-preview_zhxenh.png" 
+              alt="Nature header background" 
+              className="w-full h-full object-contain object-right opacity-60 md:opacity-100"
+            />
+          </div>
+
+          {/* Header Text Content */}
+          <div className="relative z-10 max-w-3xl">
+            <span className="text-[#7cc2c3] uppercase tracking-[0.4em] font-bold text-[10px] md:text-lg mb-4 block">
+              The Journey
+            </span>
+            <h2 className="text-4xl md:text-6xl font-serif font-black text-black leading-[1.05]">
+              From Field to <br />
+              <span className="italic font-light text-gray-400">Finished Product</span>
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-sm md:text-base">
             Five precise steps ensure every Amvi product reaches you at its nutritional and flavour peak.
           </p>
+          </div>
         </div>
 
         {/* --- PROCESS TIMELINE --- */}
@@ -99,15 +113,7 @@ const OurProcess = () => {
           </div>
         </div>
 
-        {/* --- BOTTOM CTA --- */}
-        <div className="mt-24 flex justify-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-black text-white rounded-full text-[10px] font-bold tracking-[0.3em] uppercase hover:bg-[#d63030] transition-all cursor-pointer group">
-            Learn more about our standards
-            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </div>
-        </div>
+      
 
       </div>
     </section>

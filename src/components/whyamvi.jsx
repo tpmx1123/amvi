@@ -25,7 +25,7 @@ const CORE_VALUES = [
 
 const WhyAmvi = () => {
   return (
-    <section className=" py-2 px-6 md:px-10 ">
+    <section className=" py-10 px-6 md:px-10 ">
       <div className="max-w-7xl mx-auto">
         
         {/* --- WHY AMVI: background image, text on the right --- */}
@@ -119,6 +119,7 @@ const WhyAmvi = () => {
           </div>
 
         </div>
+        <div className="text-center mb-20"><button>view all products</button></div>
 
       </div>
     </section>

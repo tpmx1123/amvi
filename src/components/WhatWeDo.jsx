@@ -29,7 +29,7 @@ const VERTICALS = [
 
 const WhatWeDo = () => {
   return (
-    <section className=" py-2 px-6 md:px-10 overflow-hidden">
+    <section className=" py-10 px-6 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* --- HEADER SECTION WITH BACKGROUND --- */}
@@ -82,7 +82,7 @@ const WhatWeDo = () => {
                 <span className="text-[10px] font-black tracking-[0.3em] text-[#7cc2c3] uppercase mb-2 block">
                   {item.category}
                 </span>
-                <h4 className="text-2xl font-serif font-black text-black  mb-6 transition-colors duration-500">
+                <h4 className="text-2xl  font-black text-black  mb-6 transition-colors duration-500">
                   {item.title}
                 </h4>
                 <p className="text-gray-500 group-hover:text-gray-400 text-sm leading-relaxed mb-8">
