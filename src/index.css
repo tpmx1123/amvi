@@ -1,9 +1,15 @@
 @import "tailwindcss" source(".");
 
+@theme {
+  --font-sans: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+}
+
 /* Minimal base – Tailwind handles all styling */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -11,6 +17,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #ecf2f2;
+  font-family: 'Source Sans 3', ui-sans-serif, system-ui, sans-serif;
 }
 
 #root {

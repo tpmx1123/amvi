@@ -2,14 +2,14 @@ import React from 'react';
 import { useParallax } from '../hooks/useParallax';
 
 const PRODUCTS = [
-  { id: 1, tag: "Best Seller", title: "Ginger Powder", origin: "Konaseema Orchards", img: "https://i.pinimg.com/1200x/75/32/5a/75325a5df8977d944f1cb9c0b22ec2a4.jpg", accent: "#7cc2c3" },
-  { id: 2, tag: "New Arrival", title: "Tomato Powder", origin: "Farm Fresh", img: "https://i.pinimg.com/1200x/e8/ae/31/e8ae3148d1a6133ccc9d8b642932a78f.jpg", accent: "#d63030" },
-  { id: 3, tag: "Pure", title: "chrysanthemum Tea", origin: "Superfood Line", img: "https://i.pinimg.com/736x/ec/66/cf/ec66cf8af8c0f295e8f052f452aeef47.jpg", accent: "#7cc2c3" },
-  { id: 4, tag: "Export Quality", title: "ABC Powder", origin: "Nutrient Rich", img: "https://res.cloudinary.com/dhzhuobu2/image/upload/v1772692997/Gemini_Generated_Image_yki08yyki08yyki0_vdkgh2.png", accent: "#d63030" },
-  { id: 5, tag: "Tropical", title: "Brinjal Powder", origin: "Sun-Dried", img: "https://i.pinimg.com/736x/d3/a0/8a/d3a08a7fc9c25010e79e6e907fa1d75b.jpg", accent: "#7cc2c3" },
-  { id: 6, tag: "Premium", title: "Beetroot Powder", origin: "Golden Spice", img: "https://i.pinimg.com/736x/14/c5/90/14c5900fa4cd42af863a5fadad2e22f5.jpg", accent: "#d63030" },
-  { id: 7, tag: "Farm Fresh", title: "Drumstick", origin: "Dehydrated", img: "https://i.pinimg.com/1200x/34/b7/85/34b7850ab7a784e67116ec50dea4d1c9.jpg", accent: "#7cc2c3" },
-  { id: 8, tag: "Natural", title: "Rose Powder", origin: "No Additives", img:"https://i.pinimg.com/736x/38/ac/97/38ac9795c151980b284a31b74c6a5136.jpg", accent: "#d63030" },
+  { id: 1, tag: "Best Seller", title: "Ginger Powder", origin: "Konaseema Orchards", img: "https://i.pinimg.com/1200x/75/32/5a/75325a5df8977d944f1cb9c0b22ec2a4.jpg" },
+  { id: 2, tag: "New Arrival", title: "Tomato Powder", origin: "Farm Fresh", img: "https://i.pinimg.com/1200x/e8/ae/31/e8ae3148d1a6133ccc9d8b642932a78f.jpg" },
+  { id: 3, tag: "Pure", title: "chrysanthemum Tea", origin: "Superfood Line", img: "https://i.pinimg.com/736x/ec/66/cf/ec66cf8af8c0f295e8f052f452aeef47.jpg" },
+  { id: 4, tag: "Export Quality", title: "ABC Powder", origin: "Nutrient Rich", img: "https://res.cloudinary.com/dhzhuobu2/image/upload/v1772692997/Gemini_Generated_Image_yki08yyki08yyki0_vdkgh2.png" },
+  { id: 5, tag: "Tropical", title: "Brinjal Powder", origin: "Sun-Dried", img: "https://i.pinimg.com/736x/d3/a0/8a/d3a08a7fc9c25010e79e6e907fa1d75b.jpg" },
+  { id: 6, tag: "Premium", title: "Beetroot Powder", origin: "Golden Spice", img: "https://i.pinimg.com/736x/14/c5/90/14c5900fa4cd42af863a5fadad2e22f5.jpg" },
+  { id: 7, tag: "Farm Fresh", title: "Drumstick", origin: "Dehydrated", img: "https://i.pinimg.com/1200x/34/b7/85/34b7850ab7a784e67116ec50dea4d1c9.jpg" },
+  { id: 8, tag: "Natural", title: "Rose Powder", origin: "No Additives", img:"https://i.pinimg.com/736x/38/ac/97/38ac9795c151980b284a31b74c6a5136.jpg" },
 ];
 
 const HeroProductSection = () => {
@@ -62,6 +62,8 @@ const HeroProductSection = () => {
                 animation: 'productCardFadeIn 0.6s ease-out forwards',
                 animationDelay: `${index * 60}ms`,
                 opacity: 0,
+                ['--accent']: '#7cc2c3',
+                ['--accent-hover']: '#d63030',
               }}
             >
               {/* Image container – aspect ratio + hover zoom */}
@@ -72,18 +74,17 @@ const HeroProductSection = () => {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {/* Tag pill */}
+                {/* Tag pill – teal by default, red on hover */}
                 <span
-                  className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-lg"
-                  style={{ backgroundColor: product.accent }}
+                  className="absolute top-3 left-3 text-[9px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-lg bg-[#7cc2c3] group-hover:bg-[#d63030] transition-colors duration-300"
                 >
                   {product.tag}
                 </span>
               </div>
 
               {/* Content – theme borders and typography */}
-              <div className="p-4 md:p-5 border-t-4 border-[#f0f5f5] group-hover:border-[#7cc2c3]/40 transition-colors duration-300">
-                <p className="text-[10px] font-bold text-[#7cc2c3] uppercase tracking-wider mb-1">
+              <div className="p-4 md:p-5 border-t-4 border-[#f0f5f5] group-hover:border-[#d63030]/50 transition-colors duration-300">
+                <p className="text-[10px] font-bold text-[#7cc2c3] group-hover:text-[#d63030] uppercase tracking-wider mb-1 transition-colors duration-300">
                   {product.origin}
                 </p>
                 <h3 className="text-base md:text-lg font-serif font-black text-black mb-3 leading-tight">
@@ -91,18 +92,17 @@ const HeroProductSection = () => {
                 </h3>
                 <button
                   type="button"
-                  className="w-full py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-white transition-all duration-300 hover:opacity-90 active:scale-[0.98]"
-                  style={{ backgroundColor: product.accent }}
+                  className="w-full py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-white bg-[#7cc2c3] group-hover:bg-[#d63030] transition-colors duration-300 hover:opacity-90 active:scale-[0.98]"
                 >
                   Explore
                 </button>
               </div>
 
-              {/* Accent corner glow */}
+              {/* Accent corner glow – teal by default, red on hover */}
               <div
                 className="absolute top-0 right-0 w-20 h-20 opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
                 style={{
-                  background: `radial-gradient(circle at top right, ${product.accent}, transparent 70%)`,
+                  background: 'radial-gradient(circle at top right, var(--accent-hover), transparent 70%)',
                 }}
               />
             </div>
