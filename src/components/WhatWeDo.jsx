@@ -80,7 +80,7 @@ const WhatWeDo = () => {
               className="group relative flex flex-col h-full bg-[#fcfdfd] p-10 rounded-[3rem] transition-all duration-700 hover:bg-primary/10 hover:shadow-2xl overflow-hidden"
             >
               {/* Number Background Decoration */}
-              <span className="absolute -top-2 -right-1 text-[80px]  font-bold text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
+              <span className="absolute -top-2 right-3 text-[80px]  font-bold text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
                 {item.id}
               </span>
 

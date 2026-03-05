@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   const linkClass = (scrolled) =>
-    `transition-all duration-300 relative group ${scrolled ? 'text-black' : 'text-white'}`;
+    `transition-all  relative group ${scrolled ? 'text-black' : 'text-white'}`;
   const underlineClass = (scrolled) =>
     `absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${scrolled ? 'bg-black' : 'bg-white'}`;
   const btnClass = (scrolled) =>
@@ -39,8 +39,8 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-[100] transition-all duration-500 px-6 md:px-16 py-4 flex justify-between items-center ${
-          isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
+        className={`font-montserrat fixed top-0 w-full z-[100] transition-all duration-500 px-6 md:px-16 py-4 flex justify-between items-center font-bold ${
+          isScrolled ? 'bg-white backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
         }`}
       >
         <a href="#home" className="flex items-center gap-3 group cursor-pointer">
@@ -53,7 +53,7 @@ const Navbar = () => {
 
         {/* Desktop nav */}
         <div
-          className={`hidden lg:flex gap-12 text-[10px] font-Helvetica  tracking-[0.25em] items-center ${isScrolled ? 'text-secondary' : 'text-white'}`}
+          className={`hidden lg:flex gap-12 text-[12px]   tracking-[0.25em] items-center ${isScrolled ? 'text-secondary' : 'text-white'}`}
         >
           <a href="#home" className={linkClass(isScrolled)}>
             HOME
@@ -121,7 +121,7 @@ const Navbar = () => {
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col gap-2 text-[10px] font-black tracking-[0.2em]">
+        <nav className="flex flex-col gap-2 text-[10px] tracking-[0.1em] font-sans font-bold">
           <a
             href="#home"
             onClick={() => setMobileOpen(false)}
