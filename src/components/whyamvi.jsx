@@ -89,17 +89,17 @@ const WhyAmvi = () => {
           </div>
         </div>
 
-        {/* --- SECTION 2: CORE VALUES GRID – mobile 2 cols, desktop unchanged --- */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-16 md:mb-32">
+        {/* --- SECTION 2: CORE VALUES GRID – mobile 2 cols, reduced height; desktop unchanged --- */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8 mb-10 md:mb-32">
           {CORE_VALUES.map((val, i) => (
-            <div key={i} className="group p-5 md:p-8 bg-[#f8fcfc] rounded-2xl md:rounded-[2.5rem] hover:bg-primary transition-all duration-500">
-              <div className="text-3xl md:text-4xl mb-4 md:mb-6 group-hover:scale-125 transition-transform duration-500">
+            <div key={i} className="group p-4 md:p-8 bg-[#f8fcfc] rounded-xl md:rounded-[2.5rem] hover:bg-primary transition-all duration-500">
+              <div className="text-2xl md:text-4xl mb-3 md:mb-6 group-hover:scale-125 transition-transform duration-500">
                 {val.icon}
               </div>
-              <h4 className="text-xs md:text-sm text-secondary uppercase tracking-widest mb-2 md:mb-4 group-hover:text-white transition-colors font-Helvetica font-bold">
+              <h4 className="text-xs md:text-sm text-secondary uppercase tracking-widest mb-1.5 md:mb-4 group-hover:text-white transition-colors font-Helvetica font-bold">
                 {val.title}
               </h4>
-              <p className="text-secondary text-xs md:text-sm leading-relaxed group-hover:text-white transition-colors font-montserrat">
+              <p className="text-secondary text-[11px] md:text-sm leading-snug md:leading-relaxed group-hover:text-white transition-colors font-montserrat">
                 {val.desc}
               </p>
             </div>
