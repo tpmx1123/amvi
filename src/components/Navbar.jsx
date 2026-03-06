@@ -39,15 +39,15 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`font-montserrat fixed top-0 w-full z-[100] transition-all duration-500 px-6 md:px-16 py-4 flex justify-between items-center font-bold ${
+        className={`font-montserrat fixed top-0 left-0 right-0 w-full max-w-full z-[100] transition-all duration-500 px-3 sm:px-6 md:px-16 py-4 flex justify-between items-center gap-2 font-bold min-w-0 ${
           isScrolled ? 'bg-white backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'
         }`}
       >
-        <a href="#home" className="flex items-center gap-3 group cursor-pointer">
+        <a href="#home" className="flex items-center shrink-0 group cursor-pointer">
           <img
             src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772605073/Screenshot_2026-03-04_114703-removebg-preview_exaaet.png"
             alt="Amvi Foods Logo"
-            className={`transition-all duration-500 ${isScrolled ? 'h-10 md:h-12' : 'h-12 md:h-16'}`}
+            className={`transition-all duration-500 h-7 w-auto max-w-[72px] sm:h-10 sm:max-w-none md:h-12 ${!isScrolled ? 'md:h-16' : ''} object-contain object-left`}
           />
         </a>
 
@@ -75,8 +75,8 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Right: search, cart, mobile menu button */}
-        <div className="flex items-center gap-4 md:gap-6">
+        {/* Right: Cart first, then Menu (mobile); Search + Cart + Menu on larger */}
+        <div className="flex items-center gap-1.5 sm:gap-3 md:gap-6 shrink-0">
           <button
             className={`hidden sm:block p-0 bg-transparent transition-colors ${isScrolled ? 'text-black hover:text-black/80' : 'text-white hover:text-white/80'}`}
             aria-label="Search"
@@ -86,7 +86,7 @@ const Navbar = () => {
             </svg>
           </button>
           <button
-            className={`hidden sm:flex items-center gap-2 bg-primary border-2 px-7 py-3 rounded-full text-[10px] font-bold tracking-widest transition-all duration-300 active:scale-95 ${isScrolled ? 'border-primary  text-white hover:bg-primary hover:text-white' : 'border-white text-white hover:bg-white hover:text-black'}`}
+            className={`flex items-center gap-1 sm:gap-2 border-2 px-2.5 sm:px-5 md:px-7 py-2 sm:py-2.5 md:py-3 rounded-full text-[9px] sm:text-[10px] font-bold tracking-widest transition-all duration-300 active:scale-95 whitespace-nowrap ${isScrolled ? 'border-primary text-white bg-primary hover:bg-primary hover:text-white' : 'border-white text-white hover:bg-white hover:text-black'}`}
           >
             CART (0)
           </button>
@@ -94,15 +94,15 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'text-black hover:bg-black/10' : 'text-white hover:bg-white/10'}`}
-            aria-label="Menu"
+            className={`lg:hidden p-2.5 rounded-lg transition-colors flex-shrink-0 min-w-[40px] min-h-[40px] flex items-center justify-center ${isScrolled ? 'text-black hover:bg-black/10' : 'text-white hover:bg-white/10'}`}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileOpen ? (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -117,11 +117,25 @@ const Navbar = () => {
         aria-hidden="true"
       />
       <div
-        className={`fixed top-0 right-0 h-full w-[min(280px,85vw)] z-[101] bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-out flex flex-col pt-20 px-6 ${
+        className={`fixed top-0 right-0 h-full w-[min(280px,85vw)] z-[101] bg-white shadow-2xl lg:hidden transform transition-transform duration-300 ease-out flex flex-col ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <nav className="flex flex-col gap-2 text-[10px] tracking-[0.1em] font-sans font-bold">
+        {/* Mobile drawer header: Menu label + Close button */}
+        <div className="flex items-center justify-between py-4 px-6 border-b border-gray-100">
+          <span className="text-[10px] font-bold tracking-[0.2em] text-secondary uppercase">Menu</span>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(false)}
+            className="p-2 rounded-lg text-secondary hover:bg-gray-100 transition-colors"
+            aria-label="Close menu"
+          >
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <nav className="flex flex-col gap-2 text-[10px] tracking-[0.1em] font-sans font-bold flex-1 pt-6 px-6 overflow-auto">
           <a
             href="#home"
             onClick={() => setMobileOpen(false)}

@@ -57,13 +57,13 @@ const Footer = () => {
             </span>
             <ul className="space-y-4 text-sm text-white font-montserrat">
               <li>
-                <a href="mailto:hello@amvifoods.com" className="hover:text-primary transition-colors">
-                  hello@amvifoods.com
+                <a href="mailto:amvifoods@gmail.com" className="hover:text-primary transition-colors">
+                  amvifoods@gmail.com
                 </a>
               </li>
               <li>
-                <a href="tel:+911234567890" className="hover:text-primary transition-colors">
-                  +91 123 456 7890
+                <a href="tel:+919705922299" className="hover:text-primary transition-colors">
+                  +91 9705922299
                 </a>
               </li>
               <li className="pt-2">

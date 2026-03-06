@@ -29,14 +29,14 @@ const VERTICALS = [
 
 const WhatWeDo = () => {
   return (
-    <section className=" py-5 px-6 md:px-20 overflow-hidden">
+    <section className="py-5 px-4 sm:px-6 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- HEADER SECTION WITH BACKGROUND --- */}
-        <div className="relative mb-14 min-h-[300px] flex items-center">
+        {/* --- HEADER: mobile = stacked (text then image); desktop = text left, image right --- */}
+        <div className="relative flex flex-col md:min-h-[300px] md:flex-row md:items-center mb-10 md:mb-14">
           
-          {/* Background Image Container - Only for this Header block */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/4 h-full pointer-events-none z-0">
+          {/* Desktop: background image (right side) – hidden on mobile */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/4 h-full pointer-events-none z-0 hidden md:block">
             <img 
               src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772620811/Screenshot_2026-03-04_160804-removebg-preview_yz2ovj.png" 
               alt="Nature header background" 
@@ -44,11 +44,11 @@ const WhatWeDo = () => {
             />
           </div>
 
-          {/* Header Text Content – match reference: WHAT WE DO + Playfair title, Nature in gold */}
-          <div className="relative z-10 max-w-3xl px-6 md:px-16">
-            <div className="flex items-center gap-3 mb-5">
+          {/* Header text – same on mobile and desktop */}
+          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1">
+            <div className="flex items-center gap-3 mb-4 md:mb-5">
               <span 
-                className="uppercase tracking-[0.25em] text-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+                className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow"
               >
                 What We Do
               </span>
@@ -60,7 +60,7 @@ const WhatWeDo = () => {
               className="text-primary"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(2.2rem, 3.5vw, 3.2rem)',
+                fontSize: 'clamp(1.75rem, 4vw, 3.2rem)',
                 fontWeight: 700,
                 lineHeight: 1.15,
                 marginBottom: '20px',
@@ -69,6 +69,15 @@ const WhatWeDo = () => {
               Three Ways We <br />
               Bring <span className="text-accent-yellow">Nature</span> to You
             </h2>
+          </div>
+
+          {/* Mobile only: image below text (same view as desktop, stacked) */}
+          <div className="relative z-10 w-full flex-shrink-0 order-2 mt-6 md:hidden">
+            <img 
+              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772620811/Screenshot_2026-03-04_160804-removebg-preview_yz2ovj.png" 
+              alt="Fresh produce and natural products" 
+              className="w-full max-w-[320px] mx-auto h-auto object-contain object-center"
+            />
           </div>
         </div>
 

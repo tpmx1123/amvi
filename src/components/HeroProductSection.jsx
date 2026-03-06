@@ -1,5 +1,4 @@
 import React from 'react';
-import { useParallax } from '../hooks/useParallax';
 
 const PRODUCTS = [
   { id: 1, tag: "Best Seller", title: "Ginger Powder", origin: "Konaseema Orchards", img: "https://i.pinimg.com/1200x/75/32/5a/75325a5df8977d944f1cb9c0b22ec2a4.jpg" },
@@ -13,25 +12,64 @@ const PRODUCTS = [
 ];
 
 const HeroProductSection = () => {
-  const { ref: gridRef, offset: gridOffset } = useParallax(0.12);
-
   return (
-    <section id="products" className="py-10 px-6 md:px-10  overflow-hidden">
+    <section id="products" className="py-10 px-4 sm:px-6 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* Section header – theme aligned */}
+        {/* --- MOBILE HEADER: first text (right side), then image (left side) --- */}
+        <div className="flex flex-col md:hidden mb-8">
+          <div className="text-right mb-6">
+            <div className="flex items-center justify-end gap-2 mb-4">
+              
+              <span className="uppercase tracking-[0.25em] font-bold text-[10px] text-accent-yellow text-Helvetica">
+                The Collection
+              </span>
+              <span className="h-px w-10 bg-accent-yellow shrink-0" />
+            </div>
+            <h3
+              className="text-primary mb-5"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+                fontWeight: 700,
+                lineHeight: 1.15,
+              }}
+            >
+              Purely Healthy <br />
+              Fresh & <span className="text-accent-yellow">Nutritious</span>
+            </h3>
+            <a
+              href="#shop"
+              className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300"
+            >
+              View All Products
+              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+          <div className="w-full flex justify-start">
+            <img
+              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772690181/Screenshot_2026-03-05_112531-removebg-preview_ytnjdj.png"
+              alt="Fresh & Nutritious"
+              className="w-full max-w-[280px] h-auto object-contain object-left"
+            />
+          </div>
+        </div>
+
+        {/* --- DESKTOP HEADER: unchanged (image bg, text on right) --- */}
         <div 
-          className="relative mb-5 min-h-[360px] md:min-h-[420px] flex items-center justify-end "
+          className="relative mb-5 min-h-[360px] md:min-h-[420px] items-center justify-end hidden md:flex"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dhzhuobu2/image/upload/v1772690181/Screenshot_2026-03-05_112531-removebg-preview_ytnjdj.png')`,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
           }}
         >
-          <div className="relative z-10 max-w-3xl px-6 md:px-16 ">
-            <div className="flex items-center  gap-3 mb-5 ">
+          <div className="relative z-10 max-w-3xl px-6 md:px-16">
+            <div className="flex items-center gap-3 mb-5">
               <span 
-                className="uppercase tracking-[0.25em] text-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+                className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow text-Helvetica"
               >
                 The Collection
               </span>
@@ -55,7 +93,7 @@ const HeroProductSection = () => {
             <div className="flex justify-end">
               <a
                 href="#shop"
-                className="group inline-flex gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300 font-montserrat"
+                className="group inline-flex gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300"
               >
                 View All Products
                 <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -66,12 +104,8 @@ const HeroProductSection = () => {
           </div>
         </div>
 
-        {/* Two rows × 4 products – with stagger and parallax */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10"
-          style={{ transform: `translateY(${gridOffset}px)` }}
-        >
+        {/* Product grid – no parallax */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10">
           {PRODUCTS.map((product, index) => (
             <div
               key={product.id}

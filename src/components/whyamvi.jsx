@@ -25,12 +25,43 @@ const CORE_VALUES = [
 
 const WhyAmvi = () => {
   return (
-    <section className=" py-10 px-6 md:px-20 ">
+    <section className="py-10 px-4 sm:px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- WHY AMVI: background image, text on the right --- */}
+        {/* --- MOBILE HEADER: text first (right-aligned), then image (same pattern as HeroProductSection) --- */}
+        <div className="flex flex-col md:hidden mb-8">
+          <div className="text-right mb-6">
+            <div className="flex items-center justify-end gap-2 mb-4">
+            <span className="uppercase tracking-[0.25em] font-bold text-[10px] text-accent-yellow text-Helvetica">
+                Why Amvi
+              </span>
+              <span className="h-px w-10 bg-accent-yellow shrink-0" />
+            </div>
+            <h3
+              className="text-primary mb-5"
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
+                fontWeight: 700,
+                lineHeight: 1.15,
+              }}
+            >
+              Where Tradition <br />
+              Meets <span className="text-accent-yellow">Precision</span>
+            </h3>
+          </div>
+          <div className="w-full flex justify-start">
+            <img
+              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772627810/Gemini_Generated_Image_kfsx7rkfsx7rkfsx-removebg-preview_ydba0m.png"
+              alt="Where Tradition Meets Precision"
+              className="w-full max-w-[280px] h-auto object-contain object-left"
+            />
+          </div>
+        </div>
+
+        {/* --- DESKTOP HEADER: unchanged (background image, text on right) --- */}
         <div 
-          className="relative mb-5 min-h-[360px] md:min-h-[420px] flex items-center justify-end "
+          className="relative mb-5 min-h-[360px] md:min-h-[420px] hidden md:flex items-center justify-end"
           style={{
             backgroundImage: `url('https://res.cloudinary.com/dhzhuobu2/image/upload/v1772627810/Gemini_Generated_Image_kfsx7rkfsx7rkfsx-removebg-preview_ydba0m.png')`,
             backgroundSize: 'contain',
@@ -38,9 +69,9 @@ const WhyAmvi = () => {
           }}
         >
           <div className="relative z-10 max-w-2xl text-right px-6 md:px-16 py-12">
-            <div className="flex items-center justify-end gap-3 mb-5 text-left">
+          <div className="flex items-center gap-3 mb-5">
               <span 
-                className="uppercase tracking-[0.25em] font-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+                className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow text-Helvetica"
               >
                 Why Amvi
               </span>
@@ -61,31 +92,32 @@ const WhyAmvi = () => {
               Where Tradition <br />
               Meets <span className="text-accent-yellow">Precision</span>
             </h3>
+            
           </div>
         </div>
 
-        {/* --- SECTION 2: CORE VALUES GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+        {/* --- SECTION 2: CORE VALUES GRID – mobile 2 cols, desktop unchanged --- */}
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-16 md:mb-32">
           {CORE_VALUES.map((val, i) => (
-            <div key={i} className="group p-8 bg-[#f8fcfc] rounded-[2.5rem] hover:bg-primary transition-all duration-500">
-              <div className="text-4xl mb-6 group-hover:scale-125 transition-transform duration-500">
+            <div key={i} className="group p-5 md:p-8 bg-[#f8fcfc] rounded-2xl md:rounded-[2.5rem] hover:bg-primary transition-all duration-500">
+              <div className="text-3xl md:text-4xl mb-4 md:mb-6 group-hover:scale-125 transition-transform duration-500">
                 {val.icon}
               </div>
-              <h4 className="text-sm  text-secondary uppercase tracking-widest mb-4 group-hover:text-white transition-colors text-Helvetica font-bold">
+              <h4 className="text-xs md:text-sm text-secondary uppercase tracking-widest mb-2 md:mb-4 group-hover:text-white transition-colors font-Helvetica font-bold">
                 {val.title}
               </h4>
-              <p className="text-secondary text-sm leading-relaxed group-hover:text-white transition-colors font-montserrat">
+              <p className="text-secondary text-xs md:text-sm leading-relaxed group-hover:text-white transition-colors font-montserrat">
                 {val.desc}
               </p>
             </div>
           ))}
         </div>
 
-        {/* --- SECTION 3: KONASEEMA ORIGIN (THE BENTO BOX) --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* --- SECTION 3: KONASEEMA ORIGIN (THE BENTO BOX) – enhanced mobile --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 items-stretch">
           
           {/* Main Info Box with Background Image and Glass Effect */}
-          <div className="lg:col-span-7 relative rounded-[3rem] p-12 md:p-16 overflow-hidden shadow-xl min-h-[400px] flex items-center">
+          <div className="lg:col-span-7 relative rounded-2xl md:rounded-[3rem] p-6 md:p-12 lg:p-16 overflow-hidden shadow-xl min-h-[320px] md:min-h-[400px] flex items-center">
   {/* 1. Background Image Layer */}
   <div className="absolute inset-0 z-10">
     <img 
@@ -100,14 +132,14 @@ const WhyAmvi = () => {
 
   {/* 3. Content Layer */}
   <div className="relative z-20">
-    <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-accent-red mb-4 block drop-shadow-sm font-Helvetica">
+    <span className="text-[10px] font-bold tracking-[0.1em] uppercase text-accent-red mb-3 md:mb-4 block drop-shadow-sm font-Helvetica">
       Sourced From
     </span>
-    <h4 className="text-5xl md:text-7xl font-serif  mb-8 text-white leading-tight font-playfair display-serif uppercase ">
+    <h4 className="text-4xl md:text-5xl lg:text-7xl font-serif mb-6 md:mb-8 text-white leading-tight font-playfair display-serif uppercase ">
       Konaseema
     </h4>
-    <div className="max-w-md border-l-4 border-white pl-6">
-      <p className="text-white   text-lg md:text-xl leading-relaxed font-bold mb-4 font-Helvetica">
+    <div className="max-w-md border-l-4 border-white pl-4 md:pl-6">
+      <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed font-bold mb-3 md:mb-4 font-Helvetica">
         The "God's Own Land" of Andhra Pradesh.
       </p>
       <p className="text-white text-sm md:text-base leading-relaxed font-montserrat">
@@ -117,17 +149,17 @@ const WhyAmvi = () => {
   </div>
 </div>
 
-          {/* Compliance & Quality Bento Grid */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+          {/* Compliance & Quality Bento Grid – mobile 2 cols, tighter padding */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3 md:gap-4">
             {[
               { label: "FSSAI", sub: "Compliant" },
               { label: "Export", sub: "Quality" },
               { label: "Natural", sub: "Process" },
               { label: "No", sub: "Additives" }
             ].map((item, i) => (
-              <div key={i} className="bg-primary/10 border border-primary/20 rounded-[2rem] p-6 flex flex-col justify-center items-center text-center hover:bg-primary transition-colors group">
-                <span className="text-2xl font-black text-secondary group-hover:text-white transition-colors font-Helvetica">{item.label}</span>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors font-montserrat">{item.sub}</span>
+              <div key={i} className="bg-primary/10 border border-primary/20 rounded-xl md:rounded-[2rem] p-4 md:p-6 flex flex-col justify-center items-center text-center hover:bg-primary transition-colors group min-h-[88px] md:min-h-0">
+                <span className="text-lg md:text-2xl font-black text-secondary group-hover:text-white transition-colors font-Helvetica">{item.label}</span>
+                <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-primary group-hover:text-white/80 transition-colors font-montserrat">{item.sub}</span>
               </div>
             ))}
            

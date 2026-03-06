@@ -10,23 +10,26 @@ const PROCESS_STEPS = [
 
 const OurProcess = () => {
   return (
-    <section className="py-10 px-6 md:px-20 overflow-hidden ">
+    <section className="py-10 px-4 sm:px-6 md:px-20 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- HEADER --- */}
-        <div className="relative mb-24 min-h-[300px] flex items-center">
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/4 h-full pointer-events-none z-0">
+        {/* --- HEADER: same style as WhatWeDo; mobile = stacked (text then image), desktop = text left, image right --- */}
+        <div className="relative flex flex-col md:min-h-[300px] md:flex-row md:items-center mb-10 md:mb-24">
+          
+          {/* Desktop: background image (right side) – hidden on mobile */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full md:w-3/4 h-full pointer-events-none z-0 hidden md:block">
             <img 
               src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772686310/Screenshot_2026-03-05_102036-removebg-preview_zhxenh.png" 
               alt="Nature header background" 
-              className="w-full h-full object-contain object-right "
+              className="w-full h-full object-contain object-right opacity-60 md:opacity-100"
             />
           </div>
 
-          <div className="relative z-10 max-w-3xl px-6 md:px-16">
-            <div className="flex items-center gap-3 mb-5">
+          {/* Header text – same styling as WhatWeDo */}
+          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1">
+            <div className="flex items-center gap-3 mb-4 md:mb-5">
               <span 
-                className="uppercase tracking-[0.25em] text-Helvetica font-bold text-[10px] md:text-sm text-accent-yellow"
+                className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow"
               >
                 The Journey
               </span>
@@ -38,7 +41,7 @@ const OurProcess = () => {
               className="text-primary"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(2.2rem, 3.5vw, 3.2rem)',
+                fontSize: 'clamp(1.75rem, 4vw, 3.2rem)',
                 fontWeight: 700,
                 lineHeight: 1.15,
                 marginBottom: '20px',
@@ -47,21 +50,28 @@ const OurProcess = () => {
               From Field to <br />
               <span className="text-accent-yellow">Finished</span> Product
             </h2>
-            <p className="text-secondary max-w-lg text-sm md:text-base leading-relaxed font-montserrat">
+            <p className="text-secondary max-w-lg text-sm md:text-base leading-relaxed">
               Five precise steps ensure every Amvi product reaches you at its nutritional and flavour peak.
             </p>
+          </div>
+
+          {/* Mobile only: image below text (same view as desktop, stacked) */}
+          <div className="relative z-10 w-full shrink-0 order-2 mt-6 md:hidden">
+            <img 
+              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772686310/Screenshot_2026-03-05_102036-removebg-preview_zhxenh.png" 
+              alt="From field to finished product" 
+              className="w-full max-w-[320px] mx-auto h-auto object-contain object-center"
+            />
           </div>
         </div>
 
         {/* --- DYNAMIC TIMELINE --- */}
         <div className="relative px-4">
           
-          {/* 1. Static Base Line (Gray Dots) */}
+          {/* Desktop: horizontal dotted lines – hidden on mobile */}
           <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-[2px] z-0 opacity-20">
             <div className="w-full h-full bg-[radial-gradient(#000_2px,transparent_2px)] bg-[length:20px_20px]"></div>
           </div>
-
-          {/* 2. Animated Progress Line (Reveals on Load/Scroll) */}
           <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-[2px] z-0">
             <div 
               className="w-full h-full bg-[radial-gradient(var(--primary)_3px,transparent_2px)] bg-size-[20px_20px] animate-draw-line"
@@ -72,14 +82,52 @@ const OurProcess = () => {
             ></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-4 relative z-10">
+          {/* Mobile: vertical dotted line on left, icons left, text right */}
+          <div className="lg:hidden relative pl-1">
+            {/* Vertical dotted line – animated dots, ends at step 5 (no line below) */}
+            <div 
+              className="absolute left-8 top-6 w-[2px] opacity-60 bg-[radial-gradient(circle,var(--primary)_2px,transparent_2px)] bg-size-[2px_20px] bg-position-[center_top] animate-flow-dots-vertical"
+              style={{ height: 'calc(100% - 7rem)' }}
+            />
+            {PROCESS_STEPS.map((step, index) => (
+              <div 
+                key={index} 
+                className="flex gap-4 items-start relative pb-8 last:pb-0"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Icon on left (sits on the dotted line) */}
+                <div className="relative z-10 shrink-0 w-14 h-14 rounded-full bg-white border-2 border-gray-100 flex items-center justify-center text-2xl shadow-sm">
+                  {step.icon}
+                  <span 
+                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-black text-white bg-primary"
+                  >
+                    {step.id}
+                  </span>
+                </div>
+                {/* Text on right */}
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <h4 className="text-[9px] font-black text-primary uppercase tracking-widest mb-1">
+                    Step {step.id}
+                  </h4>
+                  <h3 className="text-base font-black text-secondary mb-2 group-hover:text-accent-red transition-colors">
+                    {step.title}
+                  </h3>
+                  <p className="text-secondary text-xs leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: 5-column grid – hidden on mobile */}
+          <div className="hidden lg:grid grid-cols-5 gap-4 relative z-10">
             {PROCESS_STEPS.map((step, index) => (
               <div 
                 key={index} 
                 className="group flex flex-col items-center text-center opacity-0 animate-fade-in"
                 style={{ animationDelay: `${index * 400 + 500}ms`, animationFillMode: 'forwards' }}
               >
-                
                 {/* Step Circle */}
                 <div className="relative mb-10">
                   <div 
@@ -88,38 +136,27 @@ const OurProcess = () => {
                     <span className="text-3xl transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">
                       {step.icon}
                     </span>
-                    
-                    {/* Ring Pulse on Active/Hover – red dotted circle */}
                     <div 
                       className="absolute inset-0 rounded-full border-2 border-dashed opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow border-accent-red"
                     ></div>
                   </div>
-
-                  {/* Step Number Badge – same color for all */}
                   <span 
                     className="absolute -top-2 -right-2 w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg z-20 transition-transform duration-700 bg-primary"
                   >
                     {step.id}
                   </span>
                 </div>
-
-                {/* Content */}
                 <div className="px-2">
-                  <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-4 font-Helvetica">
+                  <h4 className="text-[10px] font-black text-primary uppercase tracking-[0.3em] mb-4 font-montserrat">
                     Step {step.id}
                   </h4>
-                  <h3 className="text-xl font-playfair display-serif font-black text-secondary mb-4 group-hover:text-accent-red transition-colors">
+                  <h3 className="text-xl font-montserrat font-black text-secondary mb-4 group-hover:text-accent-red transition-colors">
                     {step.title}
                   </h3>
                   <p className="text-secondary text-xs md:text-sm leading-relaxed max-w-[180px] mx-auto text-montserrat">
                     {step.desc}
                   </p>
                 </div>
-
-                {/* Vertical Line for Mobile */}
-                {index !== PROCESS_STEPS.length - 1 && (
-                  <div className="lg:hidden w-[2px] h-16 bg-gradient-to-b from-gray-200 to-transparent mt-12"></div>
-                )}
               </div>
             ))}
           </div>
@@ -137,6 +174,10 @@ const OurProcess = () => {
           from { background-position: 0 center; }
           to { background-position: 40px center; }
         }
+        @keyframes flow-dots-vertical {
+          from { background-position: center 0; }
+          to { background-position: center 20px; }
+        }
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
@@ -147,6 +188,9 @@ const OurProcess = () => {
         }
         .animate-draw-line {
           clip-path: inset(0 100% 0 0);
+        }
+        .animate-flow-dots-vertical {
+          animation: flow-dots-vertical 2s linear infinite;
         }
         .animate-fade-in {
           animation: fade-in 1s ease-out forwards;
