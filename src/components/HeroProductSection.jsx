@@ -16,11 +16,10 @@ const HeroProductSection = () => {
     <section id="products" className="py-10 px-4 sm:px-6 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- MOBILE HEADER: first text (right side), then image (left side) --- */}
+        {/* --- MOBILE HEADER: text left; View All Products below title --- */}
         <div className="flex flex-col md:hidden mb-8">
-          <div className="text-right mb-6">
-            <div className="flex items-center justify-end gap-2 mb-4">
-              
+          <div className="text-left">
+            <div className="flex items-center gap-2 mb-4">
               <span className="uppercase tracking-[0.25em] font-bold text-[10px] text-accent-yellow text-Helvetica">
                 The Collection
               </span>
@@ -40,20 +39,13 @@ const HeroProductSection = () => {
             </h3>
             <a
               href="#shop"
-              className="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300"
+              className="group inline-flex gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300 "
             >
               View All Products
               <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
-          </div>
-          <div className="w-full flex justify-start">
-            <img
-              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772690181/Screenshot_2026-03-05_112531-removebg-preview_ytnjdj.png"
-              alt="Fresh & Nutritious"
-              className="w-full max-w-[280px] h-auto object-contain object-left"
-            />
           </div>
         </div>
 
@@ -90,7 +82,7 @@ const HeroProductSection = () => {
               Purely Healthy <br />
               Fresh & <span className="text-accent-yellow">Nutritious</span>
             </h3>
-            <div className="flex justify-end">
+            <div className="flex justify-end ">
               <a
                 href="#shop"
                 className="group inline-flex gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-secondary border-b-2 border-primary pb-1.5 hover:text-accent-red hover:border-accent-red transition-colors duration-300"

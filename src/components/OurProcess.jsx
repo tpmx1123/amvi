@@ -25,8 +25,8 @@ const OurProcess = () => {
             />
           </div>
 
-          {/* Header text – same styling as WhatWeDo */}
-          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1">
+          {/* Header text – left on mobile, same styling as WhatWeDo on desktop */}
+          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1 text-left">
             <div className="flex items-center gap-3 mb-4 md:mb-5">
               <span 
                 className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow"
@@ -55,14 +55,7 @@ const OurProcess = () => {
             </p>
           </div>
 
-          {/* Mobile only: image below text (same view as desktop, stacked) */}
-          <div className="relative z-10 w-full shrink-0 order-2 mt-6 md:hidden">
-            <img 
-              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772686310/Screenshot_2026-03-05_102036-removebg-preview_zhxenh.png" 
-              alt="From field to finished product" 
-              className="w-full max-w-[320px] mx-auto h-auto object-contain object-center"
-            />
-          </div>
+          {/* Mobile: no image. Desktop: image remains in absolute block above. */}
         </div>
 
         {/* --- DYNAMIC TIMELINE --- */}

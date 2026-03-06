@@ -44,8 +44,8 @@ const WhatWeDo = () => {
             />
           </div>
 
-          {/* Header text – same on mobile and desktop */}
-          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1">
+          {/* Header text – left on mobile, same on desktop */}
+          <div className="relative z-10 w-full md:max-w-3xl px-0 md:px-16 order-1 text-left">
             <div className="flex items-center gap-3 mb-4 md:mb-5">
               <span 
                 className="uppercase tracking-[0.25em] font-bold text-[10px] md:text-sm text-accent-yellow"
@@ -71,30 +71,23 @@ const WhatWeDo = () => {
             </h2>
           </div>
 
-          {/* Mobile only: image below text (same view as desktop, stacked) */}
-          <div className="relative z-10 w-full flex-shrink-0 order-2 mt-6 md:hidden">
-            <img 
-              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772620811/Screenshot_2026-03-04_160804-removebg-preview_yz2ovj.png" 
-              alt="Fresh produce and natural products" 
-              className="w-full max-w-[320px] mx-auto h-auto object-contain object-center"
-            />
-          </div>
+          {/* Mobile: no image. Desktop: image remains in absolute block above. */}
         </div>
 
         {/* --- VERTICALS INTERACTIVE GRID --- */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {VERTICALS.map((item) => (
             <div 
               key={item.id}
-              className="group relative flex flex-col h-full bg-[#fcfdfd] p-10 rounded-[3rem] transition-all duration-700 hover:bg-primary/10 hover:shadow-2xl overflow-hidden"
+              className="group relative flex flex-col h-full bg-[#fcfdfd] p-6 lg:p-8 rounded-[2rem] lg:rounded-[3rem] transition-all duration-700 hover:bg-primary/10 hover:shadow-2xl overflow-hidden"
             >
               {/* Number Background Decoration */}
-              <span className="absolute -top-2 right-3 text-[80px]  font-bold text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
+              <span className="absolute -top-2 right-3 text-[64px] lg:text-[80px] font-bold text-gray-300 group-hover:text-black/20 transition-colors duration-500 pointer-events-none font-semibold">
                 {item.id}
               </span>
 
               {/* Icon / Image Header */}
-              <div className="relative z-10 w-20 h-20 mb-12 bg-white rounded-2xl flex items-center justify-center  shadow-sm group-hover:scale-110 transition-transform duration-500">
+              <div className="relative z-10 w-16 h-16 lg:w-20 lg:h-20 mb-6 lg:mb-8 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500">
                 <img 
                   src={item.icon} 
                   alt={item.title} 
@@ -103,20 +96,20 @@ const WhatWeDo = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 flex-grow">
-                <span className="text-[10px]  tracking-[0.1em] text-accent-yellow uppercase mb-2 block">
+              <div className="relative z-10 grow">
+                <span className="text-[10px]  tracking-widest text-accent-yellow uppercase mb-2 block">
                   {item.category}
                 </span>
-                <h4 className="text-xl  font-bold text-secondary  mb-6 transition-colors duration-500">
+                <h4 className="text-lg lg:text-xl font-bold text-secondary mb-4 lg:mb-6 transition-colors duration-500">
                   {item.title}
                 </h4>
-                <p className="text-secondary text-sm leading-relaxed mb-8">
+                <p className="text-secondary text-sm leading-relaxed mb-5 lg:mb-8">
                   {item.desc}
                 </p>
               </div>
 
               {/* CTA Footer */}
-              <div className="relative z-10 pt-6 border-t border-gray-100 group-hover:border-white/10 flex justify-between items-center">
+              <div className="relative z-10 pt-4 lg:pt-6 border-t border-gray-100 group-hover:border-white/10 flex justify-between items-center">
                 <span className="text-[10px]  tracking-widest text-secondary  uppercase">
                   Explore Vertical
                 </span>

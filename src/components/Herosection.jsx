@@ -39,7 +39,7 @@ const HeroSection = () => {
       <div className="relative z-30 w-full px-4 md:px-20 lg:px-24">
         <div className="max-w-xl animate-fade-in flex flex-col items-center md:items-start text-center md:text-left">
           
-          <h2 className="text-[#ff4d4d] md:text-[#d63030] uppercase tracking-[0.3em] font-black text-[10px] md:text-xs mb-3 font-sans">
+          <h2 className="text-accent-yellow md:text-[#d63030] uppercase tracking-[0.1em] font-black text-[10px] md:text-xs mb-3 font-sans">
             Purely Healthy
           </h2>
 
@@ -51,7 +51,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-white md:text-[#1A3C3A] text-sm md:text-base mb-10 font-medium leading-relaxed md:border-l-2 border-white md:border-[#1A3C3A] md:pl-5 max-w-sm md:max-w-md">
-            Bringing the richness of <span className="text-[#ff4d4d] md:text-[#d63030] font-bold">Konaseema</span> to your plate with premium dehydrated 
+            Bringing the richness of <span className="text-accent-yellow md:text-[#d63030] font-bold">Konaseema</span> to your plate with premium dehydrated 
             vegetables, fruits, and powders.
           </p>
 

@@ -28,11 +28,11 @@ const WhyAmvi = () => {
     <section className="py-10 px-4 sm:px-6 md:px-20">
       <div className="max-w-7xl mx-auto">
         
-        {/* --- MOBILE HEADER: text first (right-aligned), then image (same pattern as HeroProductSection) --- */}
+        {/* --- MOBILE HEADER: text only, left-aligned; no image --- */}
         <div className="flex flex-col md:hidden mb-8">
-          <div className="text-right mb-6">
-            <div className="flex items-center justify-end gap-2 mb-4">
-            <span className="uppercase tracking-[0.25em] font-bold text-[10px] text-accent-yellow text-Helvetica">
+          <div className="text-left mb-6">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="uppercase tracking-[0.25em] font-bold text-[10px] text-accent-yellow font-Helvetica">
                 Why Amvi
               </span>
               <span className="h-px w-10 bg-accent-yellow shrink-0" />
@@ -49,13 +49,6 @@ const WhyAmvi = () => {
               Where Tradition <br />
               Meets <span className="text-accent-yellow">Precision</span>
             </h3>
-          </div>
-          <div className="w-full flex justify-start">
-            <img
-              src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772627810/Gemini_Generated_Image_kfsx7rkfsx7rkfsx-removebg-preview_ydba0m.png"
-              alt="Where Tradition Meets Precision"
-              className="w-full max-w-[280px] h-auto object-contain object-left"
-            />
           </div>
         </div>
 
