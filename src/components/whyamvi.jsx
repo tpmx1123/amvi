@@ -119,7 +119,7 @@ const WhyAmvi = () => {
           {/* Main Info Box with Background Image and Glass Effect */}
           <div className="lg:col-span-7 relative rounded-2xl md:rounded-[3rem] p-6 md:p-12 lg:p-16 overflow-hidden shadow-xl min-h-[320px] md:min-h-[400px] flex items-center">
   {/* 1. Background Image Layer */}
-  <div className="absolute inset-0 z-10">
+  <div className="absolute inset-0 z-10 hover:z-9">
     <img 
       src="https://res.cloudinary.com/dhzhuobu2/image/upload/v1772628338/7a761d0c69df3858fceff11ef8708f48_ssjfk9.jpg" 
       alt="Konaseema Landscape" 
@@ -128,7 +128,7 @@ const WhyAmvi = () => {
   </div>
 
   {/* 2. Glassmorphism Overlay (Blur + Tint) */}
-  <div className="absolute inset-0 z-10 backdrop-blur-md border border-white/30"></div>
+  <div className="absolute inset-0 z-10 hover:z-9 backdrop-blur-md border border-white/30"></div>
 
   {/* 3. Content Layer */}
   <div className="relative z-20">

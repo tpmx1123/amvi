@@ -45,10 +45,7 @@ const HeroSection = () => {
 
           {/* Text Color: White on Mobile, Deep Green on Desktop */}
           <h1 
-            className="text-5xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 text-white md:text-[#1A3C3A]"
-            style={{ 
-              fontFamily: "'Playfair Display', serif" 
-            }}
+            className="text-5xl md:text-5xl lg:text-6xl leading-[1.1] mb-6 text-white md:text-[#1A3C3A] font-playfair display-serif uppercase font-bold"
           >
             AMVI FOODS
           </h1>
